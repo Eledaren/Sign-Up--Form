@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+
+    .content {
+        width: 100vW;
+        .flex(flex, row, center);
+
+        .left {
+            background-image: url('img/forest.jpg');
+            background-size: auto;
+            background-repeat: no-repeat;
+            width: 80vw;
+            height: 100vh;
+            flex-grow: 1;
+
+            .logo-section {
+                background: rgba(0, 0, 0, 0.3);
+                .wrap(flex, row wrap);
+                justify-content: center;
+                margin-top: 10rem;
+
+                img {
+                    width: 5rem;
+                }
+
+                h1 { margin-top: 2rem; }
+
+                @media screen and (max-width: 900px){
+                    margin-top: 5rem;
+                }
+
+            }
+
+            @media screen and (max-width: 900px) {
+                width: 100vw;
+                height: 40vh;
+            }
+        }
+        
+        .form-section {
+            background: rgb(160, 194, 152);
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: start;
+
+            .text {
+                font-weight: bold;
+                font-size: 1.5rem;
+                padding: 1rem;
+                margin-top: 5rem;
+
+                p {
+                    @media screen and (max-width: 900px) {
+                        margin: 0.5rem;
+                    }
+                }
+
+                @media screen and (max-width: 900px) {
+                    font-size: 1.2rem;
+                    padding: 0.1rem;
+                    margin-top: 0.1rem;
+                }
+            }
+
+            .input-section {
+                background-color: rgb(138, 180, 112);
+                .flex(flex, column, left);
+                box-sizing: border-box;
+                padding: 1rem 2vw 2rem 2vw; 
+                box-shadow: 0px 5px 5px rgb(0 0 0 / 12%);
+
+                p { display: block;}
+
+                .form {
+                    .wrap(flex, row wrap);
+
+                    .input {
+                        .wrap(flex, column wrap);
+                        font-size: 1rem;
+                        margin: 0.5rem;
+                        width: 15rem;
+
+                        input {
+                            &:focus {
+                                outline: none;
+                                border-color: rgb(0, 0, 255);
+                            }
+                        }
+                    }
+                }
+
+                @media screen and (max-width: 900px) {
+                    padding: 0.2rem ;
+                }
+            }
+
+            .submit {
+                padding: 1rem;
+
+                button {
+                    font-size: 1.3rem;
+                    background-color: rgb(101, 161, 60);
+                    border: none;
+                    border-radius: 10px;
+                    color: rgb(255, 255, 255);
+                    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
+                    cursor: pointer;
+
+                    &:hover {
+                        background: rgb(255, 255, 255);
+                        color: rgb(101, 161, 60);
+                    }
+                }
+            }
+
+            .login {
+                font-size: 1rem;
+                margin-left: 0.8rem;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            @media screen and (max-width: 900px) {
+                height: 60vh;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+        }
+    }
+}
+
+/*-----MIXINS-----*/
+.flex(@display, @direction, @align) {
+    display: @display;
+    flex-direction: @direction;
+    justify-content: @align;
+}
+
+.wrap(@display, @flow) {
+    display: @display;
+    flex-flow: @flow;
+}
